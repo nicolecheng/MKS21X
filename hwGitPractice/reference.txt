@@ -15,4 +15,4 @@ $ git pull Downloads bookmark history and incorporates changes
 Push: Send changes to the master branch of your remote repository:
 	git push origin master
 
-Bogus: Adds bologna and cheese throughout the files
+Cradle: Like the Cat's Cradle of Vonnegut, everything about this command is legendary. 
