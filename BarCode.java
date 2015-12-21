@@ -24,22 +24,44 @@ public class BarCode {//implements Comparable{
     }
     
     public static void main (String[]args){
-	BarCode a = new BarCode("11361");
+	BarCode a = new BarCode("08451");
+	System.out.println(a);
     }
 
-    /*
     // postcondition: Creates a copy of a bar code.
-    public BarCode(BarCode x){}
-
+    public BarCode(BarCode x){
+	BarCode copy = x; //????
+    }
 
     //post: computes and returns the check sum for _zip
-    private int checkSum(){}
+    private int checkSum(){
+	int check = 0;
+	for (int i = 0; i < 4; i++){
+	    check += Integer.parseInt(_zip.substring(i,i+1));
+	}
+	check += Integer.parseInt(_zip.substring(4));
+	return check%10;
+    }
 
+    String digits[] = {"||:::", ":::||", "::|:|", "::||:",
+		     ":|::|", ":|:|:", ":||::", "|:::|",
+		       "|::|:", "|:|::", "||:::"};  
+    
     //postcondition: format zip + check digit + barcode 
     //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
-    public String toString(){}
+    public String toString(){
+	_zip += this.checkSum();
+	String ret = "";
+	ret += _zip + "\t|";
+	for (int i = 0; i < 5; i++){
+	    ret += digits[Integer.parseInt(_zip.substring(i,i+1))];
+	}
+	ret += digits[Integer.parseInt(_zip.substring(5))];
+	return ret+"|";
+    }
 
 
+    /*
     public boolean equals(Object other){}
     // postcondition: false if the object is not a BarCode, 
     // false if it is a non-matching barcode
