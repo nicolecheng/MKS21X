@@ -48,7 +48,7 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 		m = m * 9 / 5 + 32;
 		label.setText(m+" degrees Fahrenheit");    
 	    }
-	}catch(NullPointerException x){
+	}catch(Exception x){
 	    label.setText("Sorry -- your 'number' input is invalid");
 	}
  
