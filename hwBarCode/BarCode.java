@@ -1,4 +1,5 @@
 public class BarCode {//implements Comparable{
+
     // instance variables
     private String _zip;
     private int _checkDigit;
@@ -43,9 +44,9 @@ public class BarCode {//implements Comparable{
 	return check%10;
     }
 
-    String digits[] = {"||:::", ":::||", "::|:|", "::||:",
-		     ":|::|", ":|:|:", ":||::", "|:::|",
-		       "|::|:", "|:|::", "||:::"};  
+    private static final String digits[] = {"||:::", ":::||", "::|:|",
+					    "::||:", ":|::|", ":|:|:", ":||::",
+					    "|:::|", "|::|:", "|:|::", "||:::"};  
     
     //postcondition: format zip + check digit + barcode 
     //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
@@ -61,14 +62,24 @@ public class BarCode {//implements Comparable{
     }
 
 
-    /*
-    public boolean equals(Object other){}
-    // postcondition: false if the object is not a BarCode, 
+     // postcondition: false if the object is not a BarCode, 
     // false if it is a non-matching barcode
-    // true when they match.
+    // true when they match.   
+    public boolean equals(Object other){
+	return this == other || (other instance of Barcode &&
+				 _zip.equals((Barcode)other._zip));
+    }
 
 
-    public int compareTo(Comparable other){}
     // postcondition: compares the zip + checkdigit 
-    */
+    public int compareTo(Comparable other){
+	if (this.checkSum()==_checkDigit){
+	    return 0;
+	}else if(this.checkSum()>_checkDigit){
+	    return 1;
+	}else{
+	    return -1;
+	}
+    }
+
 }
