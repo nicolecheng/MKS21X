@@ -85,6 +85,19 @@ public class Sorts{
 	}
     }
 
+    public static int[] fillRandom(int[] ary){
+	for (int i = 0; i < ary.length; i++){
+	    ary[i] = (int)(Math.random() * Integer.MAX_VALUE / 10000);
+	}
+        return ary;
+    }
+
+    public static void swap(int[]a1, int i1, int i2){
+	int hold = a1[i2];
+	a1[i2] = a1[i1];
+	a1[i1] = hold;
+    }
+/*
     public static void main(String[]args){
 	System.out.println("Selection Sort:");
 	int[] arrayName = { 8, 6, 7, 5, 3, 0, 9};
@@ -103,7 +116,7 @@ public class Sorts{
 	Sorts.printArray( arryN);
 	Sorts.bubbleSort( arryN);
 	Sorts.printArray( arryN);
-	/*	
+*/	/*	
 		int[] e = {};
 		Sorts.printArray( e);
 		Sorts.selection( e);
@@ -128,7 +141,7 @@ public class Sorts{
 		Sorts.printArray( array);
 		Sorts.selection( array);
 		Sorts.printArray( array);
-	*/
-    }
 
+    }
+*/
 }
