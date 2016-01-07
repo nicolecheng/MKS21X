@@ -87,7 +87,7 @@ public class Sorts{
 
     public static int[] fillRandom(int[] ary){
 	for (int i = 0; i < ary.length; i++){
-	    ary[i] = (int)(Math.random() * Integer.MAX_VALUE / 10000);
+	    ary[i] = (int)(Math.random() * 10000 / (Math.random() * 100));
 	}
         return ary;
     }
